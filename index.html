@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Тестовое задание в школу Node.JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="responses/success.json" id="myform" class="awesome-form">
+        <label class="awesome-form__label">
+            ФИО:
+            <input type="text" name="fio" class="awesome-form__input">
+        </label>
+        <label class="awesome-form__label">
+            Email:
+            <input type="text" name="email" class="awesome-form__input">
+        </label>
+        <label class="awesome-form__label">
+            Телефон:
+            <input type="text" name="phone" class="awesome-form__input">
+        </label>
+        <button id="submitButton" onclick="MyForm.submit();" class="awesome-form__submit-button">Отправить</button>
+    </form>
+    <div id="resultContainer"></div>
+    <script src="index.js"></script>
+</body>
+</html>

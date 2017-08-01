@@ -1,0 +1,18 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.awesome-form {
+    width: 800px;
+    margin: auto;
+}
+
+.awesome-form__label {
+    display: block;
+    margin: 15px;
+}
+
+.awesome-form__submit-button {
+    margin: 15px;
+}
