@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="responses/success.json" id="myform" class="awesome-form">
+    <form action="javascript:MyForm.submit()" id="myform" class="awesome-form">
         <label class="awesome-form__label">
             ФИО:
             <input type="text" name="fio" class="awesome-form__input">
@@ -21,7 +21,7 @@
             Телефон:
             <input type="text" name="phone" class="awesome-form__input">
         </label>
-        <button id="submitButton" onclick="MyForm.submit();" class="awesome-form__submit-button">Отправить</button>
+        <button id="submitButton" class="awesome-form__submit-button" type="submit">Отправить</button>
     </form>
     <div id="resultContainer"></div>
     <script src="index.js"></script>

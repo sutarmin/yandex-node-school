@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+.error {
+    border: 1px solid red;
+}
+
 .awesome-form {
     width: 800px;
     margin: auto;
@@ -11,6 +15,11 @@ body {
 .awesome-form__label {
     display: block;
     margin: 15px;
+}
+
+.awesome-form__input {
+    padding: 5px;
+    border-width: 1px; /* Сделал потому, что в ТЗ задан фиксированный стиль рамки для .error. Без этого рамка может "прыгать", когда добавляется класс error*/
 }
 
 .awesome-form__submit-button {
