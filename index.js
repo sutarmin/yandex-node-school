@@ -93,10 +93,10 @@ class Form {
 	// Выполняет валидацию полей и отправку ajax-запроса, если валидация пройдена.
 	submit() {
 		// Сброс подсветки неверно заполенных полей
-		let errorNodes = this.form.getElementsByClassName('error');
+		let errorNodes = Array.prototype.slice.call(this.form.getElementsByClassName('error'));
 		for (let i = 0; i < errorNodes.length; i++) {
-			errorNodes[i].classList.remove('error');
-		}
+		 	errorNodes[i].classList.remove('error');
+		 }
 		let validationResult = this.validate();
 		if (!validationResult.isValid) {
 			for (let i = 0; i < validationResult.errorFields.length; i++) {
@@ -147,6 +147,7 @@ class Form {
 
 	showError(errorText) {
 		errorText = errorText || "Произошла неведомая ошибка";
+		this.resultContainer.classList.remove("success", "progress");
 		this.resultContainer.classList.add("error");
 		this.resultContainer.innerText = errorText;		
 	}

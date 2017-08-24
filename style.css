@@ -13,18 +13,6 @@ body {
     background: #f6f5f3;
 }
 
-.error {
-    border: 1px solid red;
-}
-
-.progress {
-    border: 1px solid #E6E613;    
-}
-
-.success {
-    border: 1px solid #090;    
-}
-
 .container {
     width: 100%;
     max-width: var(--form-max-width);
@@ -93,4 +81,16 @@ body {
     box-sizing: border-box;
     padding: calc(var(--default-font-size)/2);
     margin: calc(var(--default-font-size)*2) var(--default-font-size) 0;
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.progress {
+    border: 1px solid #E6E613;    
+}
+
+.success {
+    border: 1px solid #090;    
 }

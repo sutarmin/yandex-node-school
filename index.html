@@ -9,15 +9,14 @@
 </head>
 <body>
     <div class="container">
-        <form action="/responses/success.json" id="myform" class="awesome-form" onsubmit="return false;" novalidate>
+        <form action="/responses/success.json" id="myform" class="awesome-form" onsubmit="return false;">
             <label class="awesome-form__item">
                 <span class="awesome-form__label">ФИО</span>
                 <input 
                     type="text" 
                     name="fio" 
                     class="awesome-form__input" 
-                    placeholder="Кузьма Сергеевич Петров-Водкин" 
-                    required>
+                    placeholder="Кузьма Сергеевич Петров-Водкин">
             </label>
             <label class="awesome-form__item">
                 <span class="awesome-form__label">Email</span>
@@ -25,8 +24,7 @@
                     type="email" 
                     name="email" 
                     class="awesome-form__input" 
-                    placeholder="Kuzma.P-V@ya.ru" 
-                    required>
+                    placeholder="Kuzma.P-V@ya.ru">
             </label>
             <label class="awesome-form__item">
                 <span class="awesome-form__label">Телефон</span>
@@ -34,8 +32,7 @@
                     type="text" 
                     name="phone" 
                     class="awesome-form__input" 
-                    placeholder="+7(111)222-33-11" 
-                    required>
+                    placeholder="+7(111)222-33-11">
             </label>
             <button id="submitButton" class="awesome-form__submit-button" type="submit">Отправить</button>
         </form>
