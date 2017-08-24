@@ -1,2 +1,5 @@
 settings.json
 .vscode
+node_modules
+server.js
+package-lock.json
