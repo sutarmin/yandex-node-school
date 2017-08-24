@@ -110,43 +110,39 @@ class Form {
 		this.ajaxQuery();
 	}
 
-	ajaxQuery() {
+	async ajaxQuery() {
 		this.submitButton.disabled = true;
 		let xhr = new XMLHttpRequest();
 		xhr.open('GET', this.form.action, true);
-		xhr.onreadystatechange = () => {
-			if (xhr.readyState != XMLHttpRequest.DONE) {
-				return;
-			}
-			if (xhr.status != 200) {
+		let response = await (fetch(this.form.action).catch(ex => {
+			this.submitButton.disabled = false;
+			this.resultContainer.classList.remove("progress");
+			this.showError("Беда. Мы не смогли получить ответ от сервера. \n"
+			+ "Возможно, вы открыли страницу локально или " + this.form.action + " не существует. \n"
+			+ "Попробуйте запросить данную страницу с веб-сервера и проверьте запрашиваемый адрес.");
+		}));
+		if (!response || response.status != 200) {
+			return;
+		}
+		let answer = await response.json();
+		switch (answer.status) {
+			case "progress":
+				window.setTimeout(this.ajaxQuery.bind(this), +answer.timeout);
+				this.resultContainer.classList.add("progress");
+				this.resultContainer.innerText = "Сервер попросил подождать...";
+				break;
+			case "success":
 				this.submitButton.disabled = false;
 				this.resultContainer.classList.remove("progress");
-				this.showError("Беда. Мы не смогли получить ответ от сервера. \n"
-				+ "Возможно, вы открыли страницу локально или " + this.form.action + " не существует. \n"
-				+ "Попробуйте запросить данную страницу с веб-сервера и проверьте запрашиваемый адрес.")
-			}
-			let answer = JSON.parse(xhr.responseText);
-			console.log(answer);
-			switch (answer.status) {
-				case "progress":
-					window.setTimeout(this.ajaxQuery, +answer.timeout);
-					this.resultContainer.classList.add("progress");
-					this.resultContainer.innerText = "Сервер попросил подождать...";
-					break;
-				case "success":
-					this.submitButton.disabled = false;
-					this.resultContainer.classList.remove("progress");
-					this.resultContainer.classList.add("success");
-					this.resultContainer.innerText = "Форма успешно отправлена!";
-					break;
-				case "error":
-					this.submitButton.disabled = false;
-					this.resultContainer.classList.remove("progress");
-					this.showError(answer.reason);
-					break;
-			}
-		};
-		xhr.send(null);
+				this.resultContainer.classList.add("success");
+				this.resultContainer.innerText = "Форма успешно отправлена!";
+				break;
+			case "error":
+				this.submitButton.disabled = false;
+				this.resultContainer.classList.remove("progress");
+				this.showError(answer.reason);
+				break;
+		}
 	}
 
 	showError(errorText) {
