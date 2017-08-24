@@ -1,17 +1,16 @@
+:root {
+    --primary-color: #ffdb4d;
+    --darker-primary-color: #ffcc00;
+    --default-font-size: 17px;
+    --form-max-width:  400px;
+}
+
 body {
-    padding: 0;
-    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
-    width: 800px;
-    margin: auto;
-}
-
-.result {
-    width: 600px;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: var(--default-font-size);
+    background: #f6f5f3;
 }
 
 .error {
@@ -19,23 +18,79 @@ body {
 }
 
 .progress {
-    border: 1px solid goldenrod;    
+    border: 1px solid #E6E613;    
 }
 
 .success {
-    border: 1px solid darkgreen;    
+    border: 1px solid #090;    
+}
+
+.container {
+    width: 100%;
+    max-width: var(--form-max-width);
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.awesome-form {
+    display: block;
+    padding: var(--default-font-size);
+}
+
+.awesome-form__item {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: calc(var(--default-font-size)*1.5);
 }
 
 .awesome-form__label {
     display: block;
-    margin: 15px;
+    box-sizing: border-box;
+    margin-left: calc(var(--default-font-size)/2);
+    margin-bottom: calc(var(--default-font-size)/2);
 }
 
 .awesome-form__input {
-    padding: 5px;
-    border-width: 1px; /* Сделал потому, что в ТЗ задан фиксированный стиль рамки для .error. Без этого рамка может "прыгать", когда добавляется класс error*/
+    width: 100%;
+    box-sizing: border-box;
+    font-size: var(--default-font-size);
+    padding: calc(var(--default-font-size)/2);
+    border: 1px solid #bbb;
+}
+
+.awesome-form__input:hover {
+    border: 1px solid #888;    
+}
+
+.awesome-form__input:active,
+.awesome-form__input:focus {
+    outline: 1px solid var(--darker-primary-color);
+    border: 1px solid var(--darker-primary-color);
 }
 
 .awesome-form__submit-button {
-    margin: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: var(--default-font-size);
+    border: none;
+    padding: calc(var(--default-font-size)/1.5);
+    margin-top: calc(var(--default-font-size)*1.5);
+    background: var(--primary-color);
+    
+}
+
+.awesome-form__submit-button:hover {
+    cursor: pointer;
+    background: var(--darker-primary-color);
+}
+
+.awesome-form__submit-button:disabled {
+    cursor: default;
+    background: #aaa;
+}
+
+.result-container {
+    box-sizing: border-box;
+    padding: calc(var(--default-font-size)/2);
+    margin: calc(var(--default-font-size)*2) var(--default-font-size) 0;
 }

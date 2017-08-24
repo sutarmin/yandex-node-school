@@ -119,7 +119,7 @@ class Form {
 			this.resultContainer.classList.remove("progress");
 			this.showError("Беда. Мы не смогли получить ответ от сервера. \n"
 			+ "Возможно, вы открыли страницу локально или " + this.form.action + " не существует. \n"
-			+ "Попробуйте запросить данную страницу с веб-сервера и проверьте запрашиваемый адрес.");
+			+ "Попробуйте открыть текущую страницу с веб-сервера и проверьте запрашиваемый адрес.");
 		}));
 		if (!response || response.status != 200) {
 			return;
@@ -129,13 +129,13 @@ class Form {
 			case "progress":
 				window.setTimeout(this.ajaxQuery.bind(this), +answer.timeout);
 				this.resultContainer.classList.add("progress");
-				this.resultContainer.innerText = "Сервер попросил подождать...";
+				this.resultContainer.innerText = "Ждём ответа от сервера";
 				break;
 			case "success":
 				this.submitButton.disabled = false;
 				this.resultContainer.classList.remove("progress");
 				this.resultContainer.classList.add("success");
-				this.resultContainer.innerText = "Форма успешно отправлена!";
+				this.resultContainer.innerText = "Success";
 				break;
 			case "error":
 				this.submitButton.disabled = false;
@@ -152,4 +152,4 @@ class Form {
 	}
 }
 
-var MyFrom = new Form('resultContainer');
+window.MyFrom = new Form('resultContainer');

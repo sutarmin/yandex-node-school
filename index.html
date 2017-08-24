@@ -9,22 +9,37 @@
 </head>
 <body>
     <div class="container">
-        <form action="/responses/success.json" id="myform" class="awesome-form" onsubmit="return false;">
-            <label class="awesome-form__label">
-                ФИО:
-                <input type="text" name="fio" class="awesome-form__input">
+        <form action="/responses/success.json" id="myform" class="awesome-form" onsubmit="return false;" novalidate>
+            <label class="awesome-form__item">
+                <span class="awesome-form__label">ФИО</span>
+                <input 
+                    type="text" 
+                    name="fio" 
+                    class="awesome-form__input" 
+                    placeholder="Кузьма Сергеевич Петров-Водкин" 
+                    required>
             </label>
-            <label class="awesome-form__label">
-                Email:
-                <input type="text" name="email" class="awesome-form__input">
+            <label class="awesome-form__item">
+                <span class="awesome-form__label">Email</span>
+                <input 
+                    type="email" 
+                    name="email" 
+                    class="awesome-form__input" 
+                    placeholder="Kuzma.P-V@ya.ru" 
+                    required>
             </label>
-            <label class="awesome-form__label">
-                Телефон:
-                <input type="text" name="phone" class="awesome-form__input">
+            <label class="awesome-form__item">
+                <span class="awesome-form__label">Телефон</span>
+                <input 
+                    type="text" 
+                    name="phone" 
+                    class="awesome-form__input" 
+                    placeholder="+7(111)222-33-11" 
+                    required>
             </label>
             <button id="submitButton" class="awesome-form__submit-button" type="submit">Отправить</button>
         </form>
-        <div id="resultContainer" class="result"></div>
+        <div id="resultContainer" class="result-container"></div>        
     </div>
     <script src="index.js"></script>
 </body>
