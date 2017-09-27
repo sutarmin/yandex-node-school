@@ -122,6 +122,10 @@ class Form {
 			+ "Попробуйте открыть текущую страницу с веб-сервера и проверьте запрашиваемый адрес.");
 		}));
 		if (!response || response.status != 200) {
+			this.submitButton.disabled = false;			
+			this.showError("Беда. Мы не смогли получить ответ от сервера. \n"
+			+ "Возможно, вы открыли страницу локально или " + this.form.action + " не существует. \n"
+			+ "Попробуйте открыть текущую страницу с веб-сервера и проверьте запрашиваемый адрес.");
 			return;
 		}
 		let answer = await response.json();
@@ -153,4 +157,4 @@ class Form {
 	}
 }
 
-window.MyFrom = new Form('resultContainer');
+window.MyForm = new Form('resultContainer');
