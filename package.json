@@ -1,0 +1,28 @@
+{
+  "name": "yandex-node-school",
+  "version": "1.0.0",
+  "description": "Учебное приложение школы Node.js Яндекс-денег.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha tests",
+    "start": "set NODE_PATH=. && node src/app.js ",
+    "develop": "set NODE_PATH=. && nodemon --watch src src/app.js || echo You should have nodemon been istalled globally for development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sutarmin/yandex-node-school.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sutarmin/yandex-node-school/issues"
+  },
+  "homepage": "https://github.com/sutarmin/yandex-node-school#readme",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1"
+  }
+}
