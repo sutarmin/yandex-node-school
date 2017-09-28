@@ -1,7 +1,9 @@
 const get = require("./get");
-const post = require("./post");
+const add = require("./add");
+const remove = require("./remove");
 
 module.exports = {
+    add,
     get,
-    post,
+    remove
 }

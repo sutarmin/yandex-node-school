@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha tests",
-    "start": "set NODE_PATH=. && node src/app.js ",
-    "develop": "set NODE_PATH=. && nodemon --watch src src/app.js || echo You should have nodemon been istalled globally for development"
+    "start": "NODE_PATH=. && node src/app.js ",
+    "dev": "NODE_PATH=. && nodemon --watch src src/app.js || echo You should have nodemon been istalled globally for development"
   },
   "repository": {
     "type": "git",
