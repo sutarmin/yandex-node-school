@@ -36,7 +36,7 @@ class CardsModel extends FileModel{
     }
 
     async remove(cardId) {
-        const cardIndex = this._dataSource.findIndex((card) => {           
+        const cardIndex = this._dataSource.f((card) => {           
             return card.id == cardId;
         });
         if (cardIndex === -1) {
