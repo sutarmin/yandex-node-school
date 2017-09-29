@@ -3,8 +3,14 @@ const bodyParser = require("koa-bodyparser")();
 const router = require("koa-router")();
 const serve = require("koa-static");
 
-/// libs
+// libs
 const ApplicationError = require("./libs/applicationError");
+
+// middlewares
+const logger = require("./middlewares/logger");
+const errorHandler = require("./middlewares/errorHandler");
+const timeMeasurement = require("./middlewares/timeMeasurement");
+const modelsInitializer = require("./middlewares/modelsInitializer");
 
 // models
 const CardsModel = require("./models/cardsModel");
@@ -25,21 +31,9 @@ router.delete("/cards/:id", cardsController.remove);
 router.get('/cards/:id/transactions/', transactionsController.get);
 router.post('/cards/:id/transactions/', transactionsController.add);
 
-
-// error handler
-app.use(async (ctx, next) => {
-	try {
-		await next();
-	} catch (err) {
-		console.log('Error detected', err);
-        ctx.status = err instanceof ApplicationError ? err.status : 500;
-        ctx.set("Content-Type", "application/json")
-		ctx.body = `{ "error": "${err.message}" }`;
-	}
-});
-
-// TODO: logger
-
+app.use(logger);
+app.use(timeMeasurement);
+app.use(errorHandler);
 app.use(async (ctx, next) => {
     ctx.cardsModel = new CardsModel();
     ctx.transactionsModel = new TransactionsModel();
@@ -57,5 +51,5 @@ app.use(router.routes());
 app.use(serve("./public"));
 
 app.listen(3000,() => {
-    console.log("App now listenig on port 3000");
+    console.log("Yandex.Cards now listenig on port 3000");
 });
