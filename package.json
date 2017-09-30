@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha tests",
-    "start": "NODE_PATH=. && node src/app.js ",
-    "dev": "NODE_PATH=. && nodemon --watch src src/app.js || echo You should have nodemon been istalled globally for development"
+    "start": "node src/app.js ",
+    "dev": "nodemon --watch src src/app.js || echo You should have nodemon been istalled globally for development"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,12 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0"
   }
 }
