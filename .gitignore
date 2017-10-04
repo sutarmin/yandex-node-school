@@ -1,4 +1,4 @@
 settings.json
 .vscode
 node_modules
-public/bundle.js
+build

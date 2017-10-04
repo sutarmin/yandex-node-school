@@ -3,6 +3,9 @@ const bodyParser = require('koa-bodyparser')();
 const router = require('koa-router')();
 const serve = require('koa-static');
 
+//libs
+const ssrHtml = require("./libs/ssr.build.js");
+
 // middlewares
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
@@ -17,6 +20,9 @@ const app = new Koa();
 
 router.param('id', (id, ctx, next) => next());
 
+router.get('/', (ctx) => {
+  ctx.body = ssrHtml;
+});
 router.get('/cards/', cardsController.get);
 router.post('/cards/', cardsController.add);
 router.delete('/cards/:id', cardsController.remove);
@@ -31,6 +37,7 @@ app.use(modelsInitializer);
 
 app.use(bodyParser);
 app.use(router.routes());
+app.use(serve('./build'));
 app.use(serve('./public'));
 
 app.listen(3000, () => {
