@@ -13,8 +13,8 @@ import {
 
 import './fonts.css';
 
-import cardsData from '../../data/cards';
-import transactionsData from '../../data/transactions';
+import cardsData from '../../../data/cards';
+import transactionsData from '../../../data/transactions';
 
 injectGlobal`
 	html,
